@@ -36,4 +36,21 @@ describe('Company SignUp', () => {
     expect(statusCode).toBe(200);
     expect(body).toBe(undefined);
   });
+  it('should call CompanySignUpService with valid data', async () => {
+    const { sut, companySignUpservice } = makeSut();
+    const spyService = jest.spyOn(companySignUpservice, 'execute');
+    const data = {
+      owner_company_name: 'any',
+      owner_company_phonenumber: 0,
+      owner_company_cpf: 0,
+      owner_company_role: 'any',
+      company_cnpj: 0,
+      company_name: 'any',
+      company_email: 'any',
+      company_phonenumber: 0,
+      company_area: 'any',
+    };
+    await sut.handle(data);
+    expect(spyService).toHaveBeenCalledWith(data);
+  });
 });
