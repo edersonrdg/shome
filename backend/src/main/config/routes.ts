@@ -1,7 +1,8 @@
+import companyRouter from '@main/routes/company';
 import { Router } from 'express';
 
 const routes = Router();
 
-routes.get('/', (req, res) => res.send('using on routes'));
+routes.use('/company', companyRouter);
 
 export default routes;
