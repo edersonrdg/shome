@@ -9,6 +9,7 @@
     "paths": {
       "@main/*": ["main/*"],
       "@presentation/*": ["presentation/*"],
+      "@domain/*": ["domain/*"],
     },
     "strictPropertyInitialization": false,
     "esModuleInterop": true,
