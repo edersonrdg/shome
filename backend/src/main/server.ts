@@ -1,3 +1,5 @@
+/* eslint-disable no-console */
+
 import app from './config/app';
 
 const expressServer = () => {
