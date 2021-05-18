@@ -8,6 +8,7 @@
     "baseUrl": "./src",
     "paths": {
       "@main/*": ["main/*"],
+      "@presentation/*": ["presentation/*"],
     },
     "strictPropertyInitialization": false,
     "esModuleInterop": true,
