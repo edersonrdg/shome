@@ -11,6 +11,7 @@
       "@presentation/*": ["presentation/*"],
       "@domain/*": ["domain/*"],
       "@application/*": ["application/*"],
+      "@infra/*": ["infra/*"],
     },
     "strictPropertyInitialization": false,
     "esModuleInterop": true,
