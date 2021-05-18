@@ -1,7 +1,8 @@
 {
     "env": {
         "es2021": true,
-        "node": true
+        "node": true,
+        "jest": true
     },
     "extends": [
         "airbnb-base"
@@ -31,7 +32,8 @@
     },
     "settings": {
       "import/resolver": {
-        "typescript": {}
+        "typescript": {},
+        "json": {}
       }
     }
 }

@@ -13,13 +13,13 @@
       "@application/*": ["application/*"],
       "@infra/*": ["infra/*"],
     },
+    "resolveJsonModule": true,
     "strictPropertyInitialization": false,
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
-    "typeRoots": [ "./src/@types", "./node_modules/@types"]
   },
-  "include": ["src", "__tests__", "@types"],
+  "include": ["src", "__tests__"],
 }
