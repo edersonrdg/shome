@@ -36,4 +36,23 @@ describe('CompanySignUp Service', () => {
     const response = await sut.execute(data);
     expect(response).toBe(undefined);
   });
+  it('should call CompanyRepository with valid data', async () => {
+    const { sut, companyRepository } = makeSut();
+    const spyService = jest.spyOn(companyRepository, 'create');
+
+    const data = {
+      owner_company_name: 'any',
+      owner_company_phonenumber: 0,
+      owner_company_cpf: 0,
+      owner_company_role: 'any',
+      company_cnpj: 0,
+      company_name: 'any',
+      company_email: 'any',
+      company_phonenumber: 0,
+      company_area: 'any',
+    };
+
+    await sut.execute(data);
+    expect(spyService).toHaveBeenCalledWith(data);
+  });
 });
