@@ -7,9 +7,6 @@ export class CompanySignUpController implements Controller {
 
   async handle(request: CompanySignUpParams): Promise<HttpResponse> {
     this.companySignUp.execute(request);
-    return {
-      body: request,
-      statusCode: 200,
-    };
+    return { statusCode: 200 };
   }
 }
