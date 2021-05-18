@@ -6,7 +6,7 @@ export const adapt = (controller: Controller) => async (request: Request, respon
     ...(request.body || {}),
     ...(request.params || {}),
   };
-  await controller.handle(data);
+  const { statusCode, body } = await controller.handle(data);
 
-  return response.status(200).json({ ok: true });
+  return response.status(statusCode).json(body);
 };

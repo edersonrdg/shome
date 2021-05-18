@@ -1,8 +1,11 @@
 import { CompanySignUpParams } from '@domain/entities/company';
-import { Controller } from '@presentation/protocols/controller';
+import { Controller, HttpResponse } from '@presentation/protocols';
 
 export class CompanySignUpController implements Controller {
-  async handle(request: CompanySignUpParams): Promise<void> {
-    console.log(request);
+  async handle(request: CompanySignUpParams): Promise<HttpResponse> {
+    return {
+      body: request,
+      statusCode: 200,
+    };
   }
 }
