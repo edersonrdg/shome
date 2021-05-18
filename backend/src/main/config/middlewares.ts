@@ -1,6 +1,6 @@
 import { bodyParser } from '@main/middlewares';
 import { Express } from 'express';
 
-export default (app: Express): void => {
-  app.use(bodyParser);
+export default (midlewares: Express): void => {
+  midlewares.use(bodyParser);
 };

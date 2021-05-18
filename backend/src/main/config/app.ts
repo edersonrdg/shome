@@ -4,7 +4,7 @@ import routes from './routes';
 
 const app = express();
 
+middlewares(app);
 app.use(routes);
-app.use(middlewares);
 
 export default app;
