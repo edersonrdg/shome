@@ -6,6 +6,6 @@ export class RequiredFieldValidation implements Validation {
     private readonly field: string) {}
 
   validate(): Error | void {
-    if (!this.input) throw new BaseError(`${this.field} is required`, 401);
+    if (!this.input) throw new BaseError(`${this.field} is required`);
   }
 }
