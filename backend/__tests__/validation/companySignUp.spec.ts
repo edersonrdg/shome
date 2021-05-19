@@ -20,7 +20,7 @@ describe('Company SignUp Validation', () => {
     try {
       validate(data);
     } catch (error) {
-      expect(error.message).toEqual('owner_company_name is required');
+      expect(error.message).toBe('owner_company_name is required');
       expect(error.statusCode).toBe(400);
     }
   });
@@ -41,7 +41,28 @@ describe('Company SignUp Validation', () => {
     try {
       validate(data);
     } catch (error) {
-      expect(error.message).toEqual('owner_company_phonenumber is required');
+      expect(error.message).toBe('owner_company_phonenumber is required');
+      expect(error.statusCode).toBe(400);
+    }
+  });
+  it('should return error if no owner role is provided', () => {
+    const { validate } = makeSut();
+
+    const data = {
+      owner_company_name: 'any',
+      owner_company_phonenumber: 2,
+      owner_company_cpf: 2,
+      company_cnpj: 2,
+      company_name: 'any',
+      company_email: 'any',
+      company_phonenumber: 2,
+      company_area: 'any',
+    };
+
+    try {
+      validate(data);
+    } catch (error) {
+      expect(error.message).toBe('owner_company_role is required');
       expect(error.statusCode).toBe(400);
     }
   });
