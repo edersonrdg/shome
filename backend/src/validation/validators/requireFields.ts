@@ -1,4 +1,4 @@
-import { BadRequestError } from '../../src/domain/errors';
+import { BaseError } from '@domain/errors';
 import { Validation } from '../protocols/validation';
 
 export class RequiredFieldValidation implements Validation {
@@ -6,6 +6,6 @@ export class RequiredFieldValidation implements Validation {
     private readonly field: string) {}
 
   validate(): Error | void {
-    if (!this.input) throw new BadRequestError(`${this.field} is required`);
+    if (!this.input) throw new BaseError(`${this.field} is required`, 401);
   }
 }
