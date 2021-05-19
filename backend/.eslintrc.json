@@ -23,6 +23,7 @@
       "camelcase": "off",
       "no-empty-function": "off",
       "no-restricted-syntax": "off",
+      "consistent-return": "off",
       "import/extensions": [
         "error",
         "ignorePackages",

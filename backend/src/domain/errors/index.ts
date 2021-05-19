@@ -1,4 +1,4 @@
-export class BadRequestError extends Error {
+export class BaseError extends Error {
   public readonly statusCode: number
 
   constructor(message: string, statusCode = 400) {
