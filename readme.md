@@ -3,6 +3,13 @@
 
 Shome é um aplicativo de vendas onlines. Feito para ajudar pequenas empresas que não possuem condições para contratar pessoas que cuidam dessa área. Além de claro fornecer uma facilidade na compra de qualquer produto que o usuário deseja.
 
+Ideia implementada de meu antigo repositório [backendshome-ts](https://github.com/edersonrdg/backendshome-ts/tree/main/backend)
+
+<h4 align="center"> 
+	🚧  Sistema NodeJS 🚀 Em construção...  🚧
+</h4>
+
+
 ## Primeiras features em produção
 
 ## _Shome Empresas_
