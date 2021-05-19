@@ -17,6 +17,7 @@ export default {
     '^@domain/(.*)$': resolve(__dirname, './src/domain/$1'),
     '^@application/(.*)$': resolve(__dirname, './src/application/$1'),
     '^@infra/(.*)$': resolve(__dirname, './src/infra/$1'),
+    '^@validation/(.*)$': resolve(__dirname, './src/validation/$1'),
   },
   preset: 'ts-jest',
   testMatch: [

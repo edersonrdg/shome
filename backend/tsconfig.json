@@ -12,6 +12,7 @@
       "@domain/*": ["domain/*"],
       "@application/*": ["application/*"],
       "@infra/*": ["infra/*"],
+      "@validation/*": ["validation/*"],
     },
     "resolveJsonModule": true,
     "strictPropertyInitialization": false,
