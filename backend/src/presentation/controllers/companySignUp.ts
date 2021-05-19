@@ -15,7 +15,6 @@ export class CompanySignUpController implements Controller {
     } catch (error) {
       return appError(error.message, error.statusCode);
     }
-
     return noContent();
   }
 }

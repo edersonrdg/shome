@@ -1,6 +1,7 @@
 import { CompanySignUpParams } from '@domain/entities';
 import { CompanySignUp } from '@domain/useCases';
 import { CompanySignUpController } from '@presentation/controllers';
+import { makeValidation } from '../moks/makeValidation';
 
 const makeCompanySignUpService = () => {
   class CompanySignUpStub implements CompanySignUp {
@@ -13,12 +14,13 @@ const makeCompanySignUpService = () => {
 
 const makeSut = () => {
   const companySignUpservice = makeCompanySignUpService();
-  const sut = new CompanySignUpController(companySignUpservice);
+  const validation = makeValidation();
+  const sut = new CompanySignUpController(companySignUpservice, validation);
   return { sut, companySignUpservice };
 };
 
 describe('Company SignUp', () => {
-  it('should return 200 if all data provided is valid', async () => {
+  it('should return 204 if all data provided is valid', async () => {
     const { sut } = makeSut();
 
     const data = {
@@ -33,8 +35,8 @@ describe('Company SignUp', () => {
       company_area: 'any',
     };
     const { body, statusCode } = await sut.handle(data);
-    expect(statusCode).toBe(200);
-    expect(body).toBe(undefined);
+    expect(statusCode).toBe(204);
+    expect(body).toBe(null);
   });
   it('should call CompanySignUpService with valid data', async () => {
     const { sut, companySignUpservice } = makeSut();
