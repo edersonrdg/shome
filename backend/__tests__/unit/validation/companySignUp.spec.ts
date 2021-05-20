@@ -7,13 +7,12 @@ describe('Company SignUp Validation', () => {
     const { validate } = makeSut();
 
     const data = {
-      owner_company_phonenumber: 0,
       owner_company_cpf: 0,
       owner_company_role: 'any',
       company_cnpj: 0,
       company_name: 'any',
-      company_email: 'any',
-      company_phonenumber: 0,
+      email: 'any',
+      phonenumber: 0,
       company_area: 'any',
     };
 
@@ -24,7 +23,7 @@ describe('Company SignUp Validation', () => {
       expect(error.statusCode).toBe(400);
     }
   });
-  it('should return error if no owner phonenumber is provided', () => {
+  it('should return error if no phonenumber is provided', () => {
     const { validate } = makeSut();
 
     const data = {
@@ -33,15 +32,14 @@ describe('Company SignUp Validation', () => {
       owner_company_role: 'any',
       company_cnpj: 0,
       company_name: 'any',
-      company_email: 'any',
-      company_phonenumber: 0,
+      email: 'any',
       company_area: 'any',
     };
 
     try {
       validate(data);
     } catch (error) {
-      expect(error.message).toBe('owner_company_phonenumber is required');
+      expect(error.message).toBe('phonenumber is required');
       expect(error.statusCode).toBe(400);
     }
   });
@@ -50,12 +48,11 @@ describe('Company SignUp Validation', () => {
 
     const data = {
       owner_company_name: 'any',
-      owner_company_phonenumber: 2,
       owner_company_cpf: 2,
       company_cnpj: 2,
       company_name: 'any',
-      company_email: 'any',
-      company_phonenumber: 2,
+      email: 'any',
+      phonenumber: 2,
       company_area: 'any',
     };
 
@@ -71,12 +68,11 @@ describe('Company SignUp Validation', () => {
 
     const data = {
       owner_company_name: 'any',
-      owner_company_phonenumber: 2,
       owner_company_role: 'any',
       company_cnpj: 2,
       company_name: 'any',
-      company_email: 'any',
-      company_phonenumber: 2,
+      email: 'any',
+      phonenumber: 2,
       company_area: 'any',
     };
 
@@ -92,12 +88,11 @@ describe('Company SignUp Validation', () => {
 
     const data = {
       owner_company_name: 'any',
-      owner_company_phonenumber: 2,
       owner_company_role: 'any',
       owner_company_cpf: 2,
       company_name: 'any',
-      company_email: 'any',
-      company_phonenumber: 2,
+      email: 'any',
+      phonenumber: 2,
       company_area: 'any',
     };
 
@@ -113,12 +108,11 @@ describe('Company SignUp Validation', () => {
 
     const data = {
       owner_company_name: 'any',
-      owner_company_phonenumber: 2,
       owner_company_role: 'any',
       owner_company_cpf: 2,
       company_cnpj: 2,
-      company_email: 'any',
-      company_phonenumber: 2,
+      email: 'any',
+      phonenumber: 2,
       company_area: 'any',
     };
 
@@ -134,40 +128,18 @@ describe('Company SignUp Validation', () => {
 
     const data = {
       owner_company_name: 'any',
-      owner_company_phonenumber: 2,
       owner_company_role: 'any',
       owner_company_cpf: 2,
       company_name: 'any',
       company_cnpj: 2,
-      company_phonenumber: 2,
+      phonenumber: 2,
       company_area: 'any',
     };
 
     try {
       validate(data);
     } catch (error) {
-      expect(error.message).toBe('company_email is required');
-      expect(error.statusCode).toBe(400);
-    }
-  });
-  it('should return error if no company phonenumber is provided', () => {
-    const { validate } = makeSut();
-
-    const data = {
-      owner_company_name: 'any',
-      owner_company_phonenumber: 2,
-      owner_company_role: 'any',
-      owner_company_cpf: 2,
-      company_name: 'any',
-      company_email: 'any',
-      company_cnpj: 2,
-      company_area: 'any',
-    };
-
-    try {
-      validate(data);
-    } catch (error) {
-      expect(error.message).toBe('company_phonenumber is required');
+      expect(error.message).toBe('email is required');
       expect(error.statusCode).toBe(400);
     }
   });
@@ -176,13 +148,12 @@ describe('Company SignUp Validation', () => {
 
     const data = {
       owner_company_name: 'any',
-      owner_company_phonenumber: 2,
       owner_company_role: 'any',
       owner_company_cpf: 2,
       company_name: 'any',
-      company_email: 'any',
+      email: 'any',
       company_cnpj: 2,
-      company_phonenumber: 2,
+      phonenumber: 2,
     };
 
     try {
