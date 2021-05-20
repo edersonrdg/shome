@@ -25,13 +25,12 @@ describe('Company SignUp', () => {
 
     const data = {
       owner_company_name: 'any',
-      owner_company_phonenumber: 0,
       owner_company_cpf: 0,
       owner_company_role: 'any',
       company_cnpj: 0,
       company_name: 'any',
-      company_email: 'any',
-      company_phonenumber: 0,
+      email: 'any',
+      phonenumber: 0,
       company_area: 'any',
     };
     const { body, statusCode } = await sut.handle(data);
@@ -43,13 +42,12 @@ describe('Company SignUp', () => {
     const spyService = jest.spyOn(companySignUpservice, 'execute');
     const data = {
       owner_company_name: 'any',
-      owner_company_phonenumber: 0,
       owner_company_cpf: 0,
       owner_company_role: 'any',
       company_cnpj: 0,
       company_name: 'any',
-      company_email: 'any',
-      company_phonenumber: 0,
+      email: 'any',
+      phonenumber: 0,
       company_area: 'any',
     };
     await sut.handle(data);
