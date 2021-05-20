@@ -23,13 +23,12 @@ describe('CompanySignUp Service', () => {
 
     const data = {
       owner_company_name: 'any',
-      owner_company_phonenumber: 0,
       owner_company_cpf: 0,
       owner_company_role: 'any',
       company_cnpj: 0,
       company_name: 'any',
-      company_email: 'any',
-      company_phonenumber: 0,
+      email: 'any',
+      phonenumber: 0,
       company_area: 'any',
     };
 
@@ -42,13 +41,12 @@ describe('CompanySignUp Service', () => {
 
     const data = {
       owner_company_name: 'any',
-      owner_company_phonenumber: 0,
       owner_company_cpf: 0,
       owner_company_role: 'any',
       company_cnpj: 0,
       company_name: 'any',
-      company_email: 'any',
-      company_phonenumber: 0,
+      email: 'any',
+      phonenumber: 0,
       company_area: 'any',
     };
 
