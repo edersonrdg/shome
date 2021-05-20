@@ -8,10 +8,9 @@ type requiredValid = {
 export class CompanyValidationSignUp implements Validation {
   validate(data: any) {
     const requiredValidData:requiredValid = data;
-    const requiredFields = ['owner_company_name', 'owner_company_phonenumber',
+    const requiredFields = ['owner_company_name', 'phonenumber',
       'owner_company_cpf', 'owner_company_role',
-      'company_cnpj', 'company_name', 'company_email',
-      'company_phonenumber', 'company_area'];
+      'company_cnpj', 'company_name', 'email', 'company_area'];
     for (const field of requiredFields) {
       new RequiredFieldValidation(requiredValidData[field], field).validate();
     }
