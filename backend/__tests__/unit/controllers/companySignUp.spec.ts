@@ -78,4 +78,27 @@ describe('Company SignUp', () => {
     await sut.handle(data);
     expect(spyService).toHaveBeenCalledWith(data);
   });
+  it('should return Error if companySignUp service throws', async () => {
+    const { sut, companySignUpservice } = makeSut();
+    jest.spyOn(companySignUpservice, 'execute').mockImplementation((data: any) => {
+      throw new Error();
+    });
+
+    const data = {
+      owner_company_name: 'any',
+      owner_company_cpf: 0,
+      owner_company_role: 'any',
+      company_cnpj: 0,
+      company_name: 'any',
+      email: 'any',
+      phonenumber: 0,
+      company_area: 'any',
+    };
+    try {
+      await sut.handle(data);
+    } catch (error) {
+      expect(error.message).toEqual('Internal server error');
+      expect(error.statusCode).toBe(500);
+    }
+  });
 });
