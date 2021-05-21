@@ -2,6 +2,7 @@ import { CompanySignUpParams } from '@domain/entities';
 import { CompanySignUp } from '@domain/useCases';
 import { CompanySignUpController } from '@presentation/controllers';
 import { makeValidation } from '../moks/makeValidation';
+import { throwError } from '../moks/throwError';
 
 const makeCompanySignUpService = () => {
   class CompanySignUpStub implements CompanySignUp {
@@ -40,9 +41,7 @@ describe('Company SignUp', () => {
 
   it('should return Error if companySignUp validation throws', async () => {
     const { sut, validation } = makeSut();
-    jest.spyOn(validation, 'validate').mockImplementation((data: any) => {
-      throw new Error();
-    });
+    jest.spyOn(validation, 'validate').mockImplementation(throwError);
 
     const data = {
       owner_company_name: 'any',
@@ -80,9 +79,7 @@ describe('Company SignUp', () => {
   });
   it('should return Error if companySignUp service throws', async () => {
     const { sut, companySignUpservice } = makeSut();
-    jest.spyOn(companySignUpservice, 'execute').mockImplementation((data: any) => {
-      throw new Error();
-    });
+    jest.spyOn(companySignUpservice, 'execute').mockImplementation(throwError);
 
     const data = {
       owner_company_name: 'any',
