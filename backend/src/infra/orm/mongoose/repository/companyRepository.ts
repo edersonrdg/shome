@@ -8,4 +8,11 @@ export class CompanyRepositoryMongo implements CompanyRepository {
 
     await company.save();
   }
+
+  async findByOwnerCpf(cpf: number): Promise<boolean> {
+    const company = await Company.findOne({ owner_company_cpf: cpf });
+
+    if (company) return true;
+    return false;
+  }
 }
