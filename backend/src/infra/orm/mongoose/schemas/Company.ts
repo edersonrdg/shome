@@ -1,6 +1,6 @@
-import mongoose from '../index';
+import { mongoHelper } from '../index';
 
-const CompanySchema = new mongoose.Schema({
+const CompanySchema = new mongoHelper.mongoose.Schema({
   owner_company_name: {
     type: String,
     required: [true, 'owner_company_name is required'],
@@ -35,4 +35,4 @@ const CompanySchema = new mongoose.Schema({
   },
 });
 
-export default mongoose.model('Company', CompanySchema);
+export default mongoHelper.mongoose.model('Company', CompanySchema);
