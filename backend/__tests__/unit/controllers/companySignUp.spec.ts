@@ -16,7 +16,7 @@ const makeSut = () => {
   const companySignUpservice = makeCompanySignUpService();
   const validation = makeValidation();
   const sut = new CompanySignUpController(companySignUpservice, validation);
-  return { sut, companySignUpservice };
+  return { sut, companySignUpservice, validation };
 };
 
 describe('Company SignUp', () => {
@@ -37,6 +37,31 @@ describe('Company SignUp', () => {
     expect(statusCode).toBe(201);
     expect(body).toBe(undefined);
   });
+
+  it('should return Error if companySignUp validation throws', async () => {
+    const { sut, validation } = makeSut();
+    jest.spyOn(validation, 'validate').mockImplementation((data: any) => {
+      throw new Error();
+    });
+
+    const data = {
+      owner_company_name: 'any',
+      owner_company_cpf: 0,
+      owner_company_role: 'any',
+      company_cnpj: 0,
+      company_name: 'any',
+      email: 'any',
+      phonenumber: 0,
+      company_area: 'any',
+    };
+    try {
+      await sut.handle(data);
+    } catch (error) {
+      expect(error.message).toEqual('Internal server error');
+      expect(error.statusCode).toBe(500);
+    }
+  });
+
   it('should call CompanySignUpService with valid data', async () => {
     const { sut, companySignUpservice } = makeSut();
     const spyService = jest.spyOn(companySignUpservice, 'execute');
