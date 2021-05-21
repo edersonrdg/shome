@@ -1,6 +1,6 @@
 import { CompanySignUpParams } from '@domain/entities/company';
 import { CompanySignUp } from '@domain/useCases';
-import { noContent, errorTreatment } from '@presentation/helpers/httpHelper';
+import { created, errorTreatment } from '@presentation/helpers/httpHelper';
 import { Controller, HttpResponse } from '@presentation/protocols';
 import { Validation } from '@validation/protocols/validation';
 
@@ -15,6 +15,6 @@ export class CompanySignUpController implements Controller {
     } catch (error) {
       return errorTreatment(error);
     }
-    return noContent();
+    return created();
   }
 }

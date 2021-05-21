@@ -34,8 +34,8 @@ describe('Company SignUp', () => {
       company_area: 'any',
     };
     const { body, statusCode } = await sut.handle(data);
-    expect(statusCode).toBe(204);
-    expect(body).toBe(null);
+    expect(statusCode).toBe(201);
+    expect(body).toBe(undefined);
   });
   it('should call CompanySignUpService with valid data', async () => {
     const { sut, companySignUpservice } = makeSut();
