@@ -6,10 +6,6 @@ export const adapt = (controller: Controller) => async (request: Request, respon
     ...(request.body || {}),
     ...(request.params || {}),
   };
-  try {
-    const { statusCode, body } = await controller.handle(data);
-    return response.status(statusCode).json(body);
-  } catch (error) {
-    return response.status(500).json({ error: 'internal server error' });
-  }
+  const { statusCode, body } = await controller.handle(data);
+  return response.status(statusCode).json(body);
 };
