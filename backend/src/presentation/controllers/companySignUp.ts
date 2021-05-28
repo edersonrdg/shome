@@ -5,8 +5,10 @@ import { Controller, HttpResponse } from '@presentation/protocols';
 import { Validation } from '@validation/protocols/validation';
 
 export class CompanySignUpController implements Controller {
-  constructor(private readonly companySignUp: CompanySignUp,
-    private readonly companySignUpValidation: Validation) {}
+  constructor(
+    private readonly companySignUp: CompanySignUp,
+    private readonly companySignUpValidation: Validation,
+  ) {}
 
   async handle(request: CompanySignUpParams): Promise<HttpResponse> {
     try {
