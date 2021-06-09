@@ -1,8 +1,9 @@
 import { CompanySignUpParams } from '@domain/entities';
+import { BaseError } from '@domain/errors';
 import { CompanySignUp } from '@domain/useCases';
 import { CompanySignUpController } from '@presentation/controllers';
 import { makeValidation } from '../moks/makeValidation';
-import { throwError } from '../moks/throwError';
+import { throwError, thowAppError } from '../moks/throwError';
 
 const makeCompanySignUpService = () => {
   class CompanySignUpStub implements CompanySignUp {
@@ -96,6 +97,28 @@ describe('Company SignUp', () => {
     } catch (error) {
       expect(error.message).toEqual('Internal server error');
       expect(error.statusCode).toBe(500);
+    }
+  });
+  it('should return Error if companySignUp service App throws', async () => {
+    const { sut, companySignUpservice } = makeSut();
+    jest.spyOn(companySignUpservice, 'execute').mockImplementation(thowAppError);
+
+    const data = {
+      owner_company_name: 'any',
+      owner_company_cpf: 0,
+      owner_company_role: 'any',
+      company_cnpj: 0,
+      company_name: 'any',
+      email: 'any',
+      phonenumber: 0,
+      company_area: 'any',
+    };
+    try {
+      await sut.handle(data);
+    } catch (error) {
+      expect(error instanceof BaseError).toBe(true);
+      expect(error.message).toBe('App error');
+      expect(error.statusCode).toBe(400);
     }
   });
 });
