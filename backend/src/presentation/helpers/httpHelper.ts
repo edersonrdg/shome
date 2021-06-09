@@ -13,19 +13,18 @@ export const serverError = (): HttpResponse => ({
 
 export const errorTreatment = (error: Error): HttpResponse => {
   if (error instanceof BaseError) return appError(error.message, error.statusCode);
-  console.error(error);
   return serverError();
 };
 
-export const ok = (data: any): HttpResponse => ({
-  statusCode: 200,
-  body: data,
-});
+// export const ok = (data: any): HttpResponse => ({
+//   statusCode: 200,
+//   body: data,
+// });
 
 export const created = (): HttpResponse => ({
   statusCode: 201,
 });
 
-export const noContent = (): HttpResponse => ({
-  statusCode: 204,
-});
+// export const noContent = (): HttpResponse => ({
+//   statusCode: 204,
+// });
