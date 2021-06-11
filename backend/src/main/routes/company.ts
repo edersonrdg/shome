@@ -4,6 +4,8 @@ import { Router } from 'express';
 
 const companyRouter = Router();
 
-companyRouter.post('/signup', adapt(makeCompanySignUpController()));
+companyRouter.post('/', adapt(makeCompanySignUpController()));
+
+companyRouter.get('/', (req, res) => res.send('companies'));
 
 export default companyRouter;
