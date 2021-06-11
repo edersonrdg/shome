@@ -16,10 +16,10 @@ export const errorTreatment = (error: Error): HttpResponse => {
   return serverError();
 };
 
-// export const ok = (data: any): HttpResponse => ({
-//   statusCode: 200,
-//   body: data,
-// });
+export const ok = (data: any): HttpResponse => ({
+  statusCode: 200,
+  body: data,
+});
 
 export const created = (): HttpResponse => ({
   statusCode: 201,
