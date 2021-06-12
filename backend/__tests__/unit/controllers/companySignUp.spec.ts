@@ -1,20 +1,11 @@
 import { BaseError } from '@domain/errors';
-import { CompanySignUp, CompanySignUpParams } from '@domain/useCases';
 import { CompanySignUpController } from '@presentation/controllers';
+import { CompanySignUpStub } from '../moks/makeService';
 import { makeValidation } from '../moks/makeValidation';
 import { throwError, thowAppError } from '../moks/throwError';
 
-const makeCompanySignUpService = () => {
-  class CompanySignUpStub implements CompanySignUp {
-    async execute(account: CompanySignUpParams): Promise<void> {
-      return new Promise((resolve) => resolve());
-    }
-  }
-  return new CompanySignUpStub();
-};
-
 const makeSut = () => {
-  const companySignUpservice = makeCompanySignUpService();
+  const companySignUpservice = new CompanySignUpStub();
   const validation = makeValidation();
   const sut = new CompanySignUpController(companySignUpservice, validation);
   return { sut, companySignUpservice, validation };

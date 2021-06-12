@@ -1,11 +1,11 @@
 import { CompanyRepository } from '@application/protocols/db';
-import { CompanySignUpDTO } from '@application/protocols/dtos';
 import { CompanySignUpService } from '@application/services';
 import { BaseError } from '@domain/errors';
+import { CompanySignUpParams } from '@domain/useCases';
 
 const makeCompanyRepository = () => {
   class CompanyRepositoryStub implements CompanyRepository {
-    async create(data: CompanySignUpDTO): Promise<void> {
+    async create(data: CompanySignUpParams): Promise<void> {
       return new Promise((resolve) => resolve());
     }
 
