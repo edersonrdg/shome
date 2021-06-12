@@ -1,4 +1,5 @@
-export type CompanySignUpParams = {
+export type Company = {
+  id: string
   owner_company_name: string
   owner_company_cpf: number
   owner_company_role: string
@@ -7,4 +8,6 @@ export type CompanySignUpParams = {
   company_area: string
   phonenumber: number
   email: string
+  created_at: Date
+  updated_at: Date
 }

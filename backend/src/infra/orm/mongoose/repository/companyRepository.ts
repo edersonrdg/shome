@@ -1,9 +1,9 @@
 import { CompanyRepository } from '@application/protocols/db';
-import { CompanySignUpDTO } from '@application/protocols/dtos';
+import { CompanySignUpParams } from '@domain/useCases';
 import Company from '../schemas/Company';
 
 export class CompanyRepositoryMongo implements CompanyRepository {
-  async create(data: CompanySignUpDTO): Promise<void> {
+  async create(data: CompanySignUpParams): Promise<void> {
     const company = new Company(data);
 
     await company.save();

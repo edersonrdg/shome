@@ -1,6 +1,5 @@
-import { CompanySignUpParams } from '@domain/entities';
 import { BaseError } from '@domain/errors';
-import { CompanySignUp } from '@domain/useCases';
+import { CompanySignUp, CompanySignUpParams } from '@domain/useCases';
 import { CompanySignUpController } from '@presentation/controllers';
 import { makeValidation } from '../moks/makeValidation';
 import { throwError, thowAppError } from '../moks/throwError';

@@ -1,5 +1,4 @@
-import { CompanySignUpParams } from '@domain/entities/company';
-import { CompanySignUp } from '@domain/useCases';
+import { CompanySignUp, CompanySignUpParams } from '@domain/useCases';
 import { created, errorTreatment } from '@presentation/helpers/httpHelper';
 import { Controller, HttpResponse } from '@presentation/protocols';
 import { Validation } from '@validation/protocols/validation';

@@ -1,7 +1,6 @@
 import { CompanyRepository } from '@application/protocols/db';
-import { CompanySignUpParams } from '@domain/entities';
 import { BaseError } from '@domain/errors';
-import { CompanySignUp } from '@domain/useCases';
+import { CompanySignUp, CompanySignUpParams } from '@domain/useCases';
 
 export class CompanySignUpService implements CompanySignUp {
   constructor(private readonly companyRepository: CompanyRepository) {}
