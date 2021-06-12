@@ -1,7 +1,9 @@
 import { CompanyListService } from '@application/services/companyList';
+import { makeCompanyRepository } from '../moks/makeCompanyRepo';
 
 const makeSut = () => {
-  const sut = new CompanyListService();
+  const companyRepository = makeCompanyRepository();
+  const sut = new CompanyListService(companyRepository);
   return { sut };
 };
 

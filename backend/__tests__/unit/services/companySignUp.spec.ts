@@ -1,20 +1,6 @@
-import { CompanyRepository } from '@application/protocols/db';
 import { CompanySignUpService } from '@application/services';
 import { BaseError } from '@domain/errors';
-import { CompanySignUpParams } from '@domain/useCases';
-
-const makeCompanyRepository = () => {
-  class CompanyRepositoryStub implements CompanyRepository {
-    async create(data: CompanySignUpParams): Promise<void> {
-      return new Promise((resolve) => resolve());
-    }
-
-    async findByOwnerCpf(cpf: number): Promise<boolean> {
-      return new Promise((resolve) => resolve(false));
-    }
-  }
-  return new CompanyRepositoryStub();
-};
+import { makeCompanyRepository } from '../moks/makeCompanyRepo';
 
 const makeSut = () => {
   const companyRepository = makeCompanyRepository();
