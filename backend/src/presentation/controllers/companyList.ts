@@ -6,7 +6,7 @@ export class CompanyListController implements Controller {
   constructor(private readonly companyList: CompanyList) {}
 
   async handle(): Promise<HttpResponse> {
-    const response = this.companyList.execute();
+    const response = await this.companyList.execute();
     return ok(response);
   }
 }
