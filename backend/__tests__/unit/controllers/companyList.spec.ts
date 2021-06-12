@@ -19,6 +19,6 @@ describe('Company list', () => {
     const spyService = jest.spyOn(service, 'execute');
 
     await sut.handle();
-    expect(spyService).toBeCalled();
+    expect(spyService).toHaveBeenCalled();
   });
 });
