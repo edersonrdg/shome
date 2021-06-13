@@ -1,4 +1,5 @@
 import { CompanyRepository } from '@application/protocols/db';
+import { BaseError } from '@domain/errors';
 import { DeleteCompany } from '@domain/useCases/deleteCompay';
 
 export class DeleteCompanyService implements DeleteCompany {
@@ -6,5 +7,6 @@ export class DeleteCompanyService implements DeleteCompany {
 
   async execute(companyId: string): Promise<void> {
     const company = await this.companyRepository.findById(companyId);
+    if (!company) throw new BaseError('Company does not exist');
   }
 }
