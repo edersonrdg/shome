@@ -22,21 +22,13 @@ export class CompanyRepositoryMongo implements CompanyRepository {
     return company;
   }
 
-  async findById(companyId: string): Promise<boolean> {
-    const company = await CompanySchema.findOneAndDelete({
-      where: {
-        _id: companyId,
-      },
-    });
+  async findById(_id: string): Promise<boolean> {
+    const company = await CompanySchema.findOne({ _id });
     if (company) return true;
     return false;
   }
 
-  async delete(companyId: string): Promise<void> {
-    await CompanySchema.findOneAndDelete({
-      where: {
-        _id: companyId,
-      },
-    });
+  async delete(_id: string): Promise<void> {
+    await CompanySchema.findOneAndDelete({ _id });
   }
 }
