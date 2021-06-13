@@ -30,4 +30,12 @@ describe('Delete company', () => {
       expect(error.statusCode).toBe(400);
     }
   });
+  it('Should calls delete of companyRepository with correct data', async () => {
+    const { service, companyRepository } = makeSut();
+    const spyRepo = jest.spyOn(companyRepository, 'delete');
+    const companyId = '123';
+
+    await service.execute(companyId);
+    expect(spyRepo).toHaveBeenCalledWith(companyId);
+  });
 });
