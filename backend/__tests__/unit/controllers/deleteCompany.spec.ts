@@ -31,4 +31,16 @@ describe('Delete Company', () => {
     await sut.handle(request.params.companyId);
     expect(spyService).toHaveBeenCalledWith('3333');
   });
+  it('Should return server error if service throws', async () => {
+    const { sut, service } = makeSut();
+    jest.spyOn(service, 'execute').mockImplementation(() => {
+      throw new Error('error');
+    });
+
+    try {
+      await sut.handle('123');
+    } catch (error) {
+      expect(error.statusCode).toBe(500);
+    }
+  });
 });
