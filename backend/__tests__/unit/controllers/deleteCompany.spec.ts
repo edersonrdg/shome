@@ -16,7 +16,7 @@ describe('Delete Company', () => {
       },
     };
 
-    const response = await sut.handle(request.params.companyId);
+    const response = await sut.handle(request.params);
     expect(response.statusCode).toBe(204);
   });
   it('Should calls service with correct params', async () => {
@@ -28,7 +28,7 @@ describe('Delete Company', () => {
       },
     };
 
-    await sut.handle(request.params.companyId);
+    await sut.handle(request.params);
     expect(spyService).toHaveBeenCalledWith('3333');
   });
   it('Should return server error if service throws', async () => {
@@ -36,9 +36,14 @@ describe('Delete Company', () => {
     jest.spyOn(service, 'execute').mockImplementation(() => {
       throw new Error('error');
     });
+    const request = {
+      params: {
+        companyId: '3333',
+      },
+    };
 
     try {
-      await sut.handle('123');
+      await sut.handle(request.params);
     } catch (error) {
       expect(error.statusCode).toBe(500);
     }
