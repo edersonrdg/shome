@@ -6,5 +6,7 @@ export interface CompanyRepository {
 
   findByOwnerCpf: (ownercpf: number) => Promise<boolean>
 
+  findById: (companId: string) => Promise<boolean>
+
   getAll: () => Promise<Company[]>
 }

@@ -15,6 +15,10 @@ export const makeCompanyRepository = () => {
     async getAll(): Promise<Company[]> {
       return new Promise((resolve) => resolve([]));
     }
+
+    async findById(companyId: string): Promise<boolean> {
+      return new Promise((resolve) => resolve(false));
+    }
   }
   return new CompanyRepositoryStub();
 };

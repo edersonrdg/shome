@@ -18,6 +18,13 @@ export class CompanyRepositoryMongo implements CompanyRepository {
   }
 
   async getAll(): Promise<Company[]> {
-    return await CompanySchema.find()
+    const company = await CompanySchema.find();
+    return company;
+  }
+
+  async findById(companyId: string): Promise<boolean> {
+    const company = await CompanySchema.findById(companyId);
+    if (company) return true;
+    return false;
   }
 }
