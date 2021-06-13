@@ -9,4 +9,6 @@ export interface CompanyRepository {
   findById: (companId: string) => Promise<boolean>
 
   getAll: () => Promise<Company[]>
+
+  delete: (companyId: string) => Promise<void>
 }

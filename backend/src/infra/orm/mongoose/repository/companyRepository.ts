@@ -27,4 +27,8 @@ export class CompanyRepositoryMongo implements CompanyRepository {
     if (company) return true;
     return false;
   }
+
+  async delete(companyId: string): Promise<void> {
+    await CompanySchema.findByIdAndDelete(companyId);
+  }
 }
